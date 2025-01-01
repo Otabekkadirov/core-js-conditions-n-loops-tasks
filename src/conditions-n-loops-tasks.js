@@ -21,8 +21,8 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return number >= 0;
 }
 
 /**
@@ -170,10 +170,20 @@ function getIndexOf(/* str, letter */) {
  *  123450, 1   => true
  *  123450, 0   => true
  *  12345, 0    => false
- *  12345, 6    => false
+ *  1234.5, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let lastNumber = num % 10;
+  let n = num;
+
+  while (n > 0) {
+    if (lastNumber === digit) {
+      return true;
+    }
+    n = Math.floor(n / 10);
+    lastNumber = n % 10;
+  }
+  return false;
 }
 
 /**
